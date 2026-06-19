@@ -1,0 +1,39 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BackgroundMesh from '../components/BackgroundMesh.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description, type } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEO title={title} description={description} type={type} />
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <BackgroundMesh />
+    <Header />
+    <main class="flex-1" transition:animate="fade">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>

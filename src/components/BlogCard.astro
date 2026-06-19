@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, tags } = post.data;
+const slug = post.id;
+---
+
+<article class="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5">
+  <div class="mb-2 flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
+    <time datetime={pubDate.toISOString()}>
+      {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+    </time>
+    {tags.length > 0 && (
+      <span class="rounded-md bg-[var(--color-surface-muted)] px-2 py-0.5">{tags[0]}</span>
+    )}
+  </div>
+  <h3 class="mb-2 text-lg font-semibold">
+    <a href={`/blog/${slug}`} class="text-[var(--color-text)] hover:text-[var(--color-accent)]">
+      {title}
+    </a>
+  </h3>
+  <p class="text-sm leading-relaxed text-[var(--color-text-muted)]">{description}</p>
+</article>

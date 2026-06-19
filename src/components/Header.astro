@@ -1,0 +1,71 @@
+---
+import ThemeToggle from './ThemeToggle';
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+];
+
+const current = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 glass">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-lg font-bold tracking-tight text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)]">
+      Kent<span class="text-[var(--color-accent)]">.</span>
+    </a>
+
+    <nav class="hidden items-center gap-1 sm:flex">
+      {nav.map((item) => {
+        const active = item.href === '/'
+          ? current === '/'
+          : current.startsWith(item.href);
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors',
+              active
+                ? 'bg-[var(--color-accent-glow)] text-[var(--color-accent)]'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]',
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <ThemeToggle client:load />
+      <button
+        id="mobile-menu-btn"
+        class="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] sm:hidden"
+        aria-label="Toggle menu"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-menu" class="hidden border-t border-[var(--color-border)] px-6 py-3 sm:hidden">
+    {nav.map((item) => (
+      <a
+        href={item.href}
+        class="block rounded-lg px-3 py-2 text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

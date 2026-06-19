@@ -1,0 +1,44 @@
+---
+const giscusConfig = {
+  repo: 'kent10636/kent10636.github.io',
+  repoId: '',
+  category: 'Announcements',
+  categoryId: '',
+  mapping: 'pathname',
+  strict: '0',
+  reactionsEnabled: '1',
+  emitMetadata: '0',
+  inputPosition: 'top',
+  theme: 'preferred_color_scheme',
+  lang: 'en',
+};
+---
+
+{giscusConfig.repoId ? (
+  <section class="mt-12 border-t border-[var(--color-border)] pt-8">
+    <h2 class="mb-6 text-xl font-bold">Comments</h2>
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo={giscusConfig.repo}
+      data-repo-id={giscusConfig.repoId}
+      data-category={giscusConfig.category}
+      data-category-id={giscusConfig.categoryId}
+      data-mapping={giscusConfig.mapping}
+      data-strict={giscusConfig.strict}
+      data-reactions-enabled={giscusConfig.reactionsEnabled}
+      data-emit-metadata={giscusConfig.emitMetadata}
+      data-input-position={giscusConfig.inputPosition}
+      data-theme={giscusConfig.theme}
+      data-lang={giscusConfig.lang}
+      crossorigin="anonymous"
+      async
+    />
+  </section>
+) : (
+  <section class="mt-12 rounded-xl border border-dashed border-[var(--color-border)] p-6 text-center text-sm text-[var(--color-text-muted)]">
+    Comments powered by
+    <a href="https://giscus.app" class="text-[var(--color-accent)] hover:underline" target="_blank" rel="noopener">Giscus</a>
+    — enable GitHub Discussions on the repo to activate.
+  </section>
+)}

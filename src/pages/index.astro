@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { projects } from '../data/projects';
+import { getCollection } from 'astro:content';
+
+const featured = projects.filter((p) => p.featured).slice(0, 2);
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
+---
+
+<BaseLayout title="Home" description="Kent's personal portfolio and blog.">
+  <Hero />
+
+  <section class="mx-auto max-w-5xl px-6 py-8">
+    <BentoGrid />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-12">
+    <SectionHeading title="Featured Projects" href="/projects" />
+    <div class="grid gap-4 sm:grid-cols-2">
+      {featured.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-12 pb-20">
+    <SectionHeading title="Latest Posts" href="/blog" />
+    <div class="grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>
