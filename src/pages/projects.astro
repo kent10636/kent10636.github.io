@@ -2,13 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectFilter from '../components/ProjectFilter';
 import { projects } from '../data/projects';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title="Projects" description="Selected projects and experiments.">
+<BaseLayout title={site.projects.title} description={site.projects.subtitle}>
   <section class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-    <h1 class="mb-2 text-4xl font-bold tracking-tight">Projects</h1>
+    <h1 class="mb-2 text-4xl font-bold tracking-tight">{site.projects.title}</h1>
     <p class="mb-10 text-lg text-[var(--color-text-muted)]">
-      Things I've built, shipped, or tinkered with.
+      {site.projects.subtitle}
     </p>
     <ProjectFilter client:load projects={projects} />
   </section>

@@ -23,11 +23,11 @@ const { title, description, pubDate, tags, updatedDate } = post.data;
     <header class="mb-10">
       <div class="mb-4 flex flex-wrap items-center gap-3 text-sm text-[var(--color-text-muted)]">
         <time datetime={pubDate.toISOString()}>
-          {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
         {updatedDate && (
           <span>
-            · Updated {updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            · 更新于 {updatedDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' })}
           </span>
         )}
       </div>
@@ -49,7 +49,7 @@ const { title, description, pubDate, tags, updatedDate } = post.data;
 
     <div class="mt-12 border-t border-[var(--color-border)] pt-6">
       <a href="/blog" class="text-sm font-medium text-[var(--color-accent)] hover:underline">
-        &larr; Back to blog
+        &larr; 返回博客
       </a>
     </div>
 

@@ -1,10 +1,11 @@
 ---
 import { profile } from '../data/profile';
+import { site } from '../data/site';
 ---
 
 <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
   <div class="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5 sm:col-span-2">
-    <h3 class="mb-3 text-sm font-medium text-[var(--color-accent)]">Skills</h3>
+    <h3 class="mb-3 text-sm font-medium text-[var(--color-accent)]">{site.bento.skills}</h3>
     <div class="flex flex-wrap gap-2">
       {profile.skills.map((skill) => (
         <span class="rounded-lg border border-[var(--color-border)] px-3 py-1.5 text-sm font-medium">
@@ -15,25 +16,25 @@ import { profile } from '../data/profile';
   </div>
 
   <div class="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5">
-    <h3 class="mb-2 text-sm font-medium text-[var(--color-accent)]">Status</h3>
+    <h3 class="mb-2 text-sm font-medium text-[var(--color-accent)]">{site.bento.status}</h3>
     <div class="flex items-center gap-2">
       <span class="relative flex h-2.5 w-2.5">
         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
         <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
       </span>
-      <span class="text-sm text-[var(--color-text-muted)]">Open to opportunities</span>
+      <span class="text-sm text-[var(--color-text-muted)]">{profile.status}</span>
     </div>
   </div>
 
   <div class="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5">
-    <h3 class="mb-2 text-sm font-medium text-[var(--color-accent)]">Location</h3>
+    <h3 class="mb-2 text-sm font-medium text-[var(--color-accent)]">{site.bento.location}</h3>
     <p class="text-2xl font-bold">{profile.location}</p>
   </div>
 
   <div class="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5 sm:col-span-2">
-    <h3 class="mb-2 text-sm font-medium text-[var(--color-accent)]">Currently</h3>
+    <h3 class="mb-2 text-sm font-medium text-[var(--color-accent)]">{site.bento.currently}</h3>
     <p class="text-sm leading-relaxed text-[var(--color-text-muted)]">
-      Rebuilding my personal site and exploring modern web tooling. Writing about the process on the blog.
+      {profile.currently}
     </p>
   </div>
 </section>

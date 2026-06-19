@@ -1,12 +1,8 @@
 ---
 import ThemeToggle from './ThemeToggle';
+import { site } from '../data/site';
 
-const nav = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-];
+const nav = site.nav;
 
 const current = Astro.url.pathname;
 ---

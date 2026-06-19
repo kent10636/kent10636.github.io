@@ -10,37 +10,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Personal Site',
+    title: '个人网站',
     description:
-      'Modern portfolio and blog built with Astro 6, Tailwind CSS 4, and deployed via GitHub Actions.',
+      '基于 Astro 6、Tailwind CSS 4 构建的现代化个人主页与博客，通过 GitHub Actions 自动部署。',
     tags: ['Astro', 'TypeScript', 'Tailwind'],
     github: 'https://github.com/kent10636/kent10636.github.io',
     demo: 'https://kent10636.github.io',
     featured: true,
     year: '2026',
-  },
-  {
-    title: 'Project Alpha',
-    description:
-      'A full-stack application placeholder — replace with your own project details.',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    github: 'https://github.com/kent10636',
-    featured: true,
-    year: '2025',
-  },
-  {
-    title: 'CLI Toolkit',
-    description:
-      'Developer productivity tools for automating repetitive workflows.',
-    tags: ['Rust', 'CLI'],
-    github: 'https://github.com/kent10636',
-    year: '2024',
-  },
-  {
-    title: 'Data Pipeline',
-    description:
-      'ETL pipeline for processing and visualizing large datasets in real time.',
-    tags: ['Python', 'Kafka', 'Docker'],
-    year: '2023',
   },
 ];

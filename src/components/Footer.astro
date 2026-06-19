@@ -1,5 +1,6 @@
 ---
 import { profile } from '../data/profile';
+import { site } from '../data/site';
 
 const year = new Date().getFullYear();
 ---
@@ -7,8 +8,9 @@ const year = new Date().getFullYear();
 <footer class="border-t border-[var(--color-border)]">
   <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
     <p class="text-sm text-[var(--color-text-muted)]">
-      &copy; {year} {profile.name}. Built with
-      <a href="https://astro.build" class="text-[var(--color-accent)] hover:underline" target="_blank" rel="noopener">Astro</a>.
+      &copy; {year} {profile.name}。{site.footer.builtWith}
+      <a href="https://astro.build" class="text-[var(--color-accent)] hover:underline" target="_blank" rel="noopener">{site.footer.builtWithLink}</a>
+      构建。
     </p>
     <div class="flex items-center gap-4">
       <a

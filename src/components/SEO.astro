@@ -8,12 +8,12 @@ interface Props {
 
 const {
   title,
-  description = 'Personal portfolio and blog by Kent.',
+  description = 'Kent 的个人主页与博客。',
   image = '/avatar.svg',
   type = 'website',
 } = Astro.props;
 
-const siteTitle = title === 'Home' ? 'Kent — Software Engineer' : `${title} | Kent`;
+const siteTitle = title === '首页' ? 'Kent — 软件工程师' : `${title} | Kent`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
 ---

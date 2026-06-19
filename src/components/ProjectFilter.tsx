@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Project } from '../data/projects';
+import { site } from '../data/site';
 
 type Props = {
   projects: Project[];
@@ -24,7 +25,7 @@ export default function ProjectFilter({ projects }: Props) {
               : 'border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
           }`}
         >
-          All
+          {site.projects.all}
         </button>
         {allTags.map((tag) => (
           <button
@@ -82,7 +83,7 @@ export default function ProjectFilter({ projects }: Props) {
                   rel="noopener"
                   className="font-medium text-[var(--color-text-muted)] hover:text-[var(--color-accent)]"
                 >
-                  Live demo
+                  在线预览
                 </a>
               )}
             </div>

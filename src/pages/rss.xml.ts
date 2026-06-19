@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return rss({
-    title: `${profile.name}'s Blog`,
+    title: `${profile.name} 的博客`,
     description: profile.tagline,
     site: context.site!,
     items: posts.map((post) => ({

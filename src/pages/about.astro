@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { profile } from '../data/profile';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title="About" description={profile.bio}>
+<BaseLayout title={site.about.title} description={profile.bio}>
   <section class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
     <div class="animate-fade-in-up">
       <img
@@ -13,10 +14,10 @@ import { profile } from '../data/profile';
         width="112"
         height="112"
       />
-      <h1 class="text-4xl font-bold tracking-tight">About</h1>
+      <h1 class="text-4xl font-bold tracking-tight">{site.about.title}</h1>
       <p class="mt-4 text-lg leading-relaxed text-[var(--color-text-muted)]">{profile.bio}</p>
 
-      <h2 class="mt-12 mb-6 text-2xl font-bold">Timeline</h2>
+      <h2 class="mt-12 mb-6 text-2xl font-bold">{site.about.timeline}</h2>
       <div class="space-y-6">
         {profile.timeline.map((item) => (
           <div class="flex gap-4">
@@ -29,7 +30,7 @@ import { profile } from '../data/profile';
         ))}
       </div>
 
-      <h2 class="mt-12 mb-4 text-2xl font-bold">Connect</h2>
+      <h2 class="mt-12 mb-4 text-2xl font-bold">{site.about.connect}</h2>
       <div class="flex flex-wrap gap-4">
         <a
           href={profile.social.github}
@@ -39,11 +40,6 @@ import { profile } from '../data/profile';
         >
           GitHub
         </a>
-        {profile.email && (
-          <a href={`mailto:${profile.email}`} class="text-[var(--color-accent)] hover:underline">
-            Email
-          </a>
-        )}
       </div>
     </div>
   </section>
